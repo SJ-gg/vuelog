@@ -1,47 +1,54 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">vuelog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/list" class="nav-link">List</router-link>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <router-view :blogData="blogData"></router-view>
+
+  <!-- <List :blogData="blogData" /> -->
+
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import blogData from './assets/blogData';
+import List from './components/List.vue';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+  name: 'App',
+  components: {
+    List,
+  },
+  data() {
+    return {
+      blogData,
+    }
+  },
+  methods: {},
+  mounted() {},
+};
+</script>
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
