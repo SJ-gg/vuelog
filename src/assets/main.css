@@ -41,7 +41,5 @@ body, html {
   transform: translateX(-50%);
   position: relative;
   margin: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
   border-radius: 0 !important;
 }

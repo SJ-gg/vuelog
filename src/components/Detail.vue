@@ -1,8 +1,9 @@
 <template>
   <div class="container mt-4">
-    <h5>{{ blogData[0].title }}</h5>
-    <p><small>{{ blogData[0].date }}</small></p>
-    <p>{{ blogData[0].content }}</p>
+    <h4>Detail</h4>
+    <h5>{{ blogData[id].title }}</h5>
+    <p><small>{{ blogData[id].date }}</small></p>
+    <p>{{ blogData[id].content }}</p>
   </div>
 </template>
 
@@ -10,12 +11,10 @@
 export default {
  name: 'Detail',
  props: {
-   blogData: {
-     type: Array,
-     required: true,
-   }
+   blogData: Array,
  },
 }
+var id = $route.params.id;
 </script>
 
 <style>

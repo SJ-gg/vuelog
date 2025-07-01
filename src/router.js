@@ -5,16 +5,20 @@ import Detail from "./components/Detail.vue";
 
 const routes = [
   {
-    path: "/list",
-    component: List,
-  },
-  {
     path: "/",
     component: Home,
   },
   {
-    path: "/detail",
+    path: "/list",
+    component: List,
+  },
+  {
+    path: "/detail/:id(\\d+)",
     component: Detail,
+  },
+  {
+    path: "/:anything(.*)", // 404 페이지는 가장 마지막에
+    component: Home,
   },
 ];
 
